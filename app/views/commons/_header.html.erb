@@ -1,0 +1,15 @@
+<div class="col-md-9 header js-header">
+  <%= yield(:header) %>
+</div>
+
+<ul class="nav navbar-nav navbar-right navbar-profile">
+  <li class="dropdown profile-dropdown">
+    <%= link_to '#', :class => 'dropdown-toggle', :data => { :toggle => :dropdown } do %>
+    <%= image_tag current_user.gravatar_url, :class => 'img-avatar img-circle' %>
+    <% end %>
+      <li><%= link_to 'Редактировать профиль', edit_user_registration_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to 'Выход', destroy_user_session_path, :method => :delete %></li>
+    </ul>
+  </li>
+</ul>

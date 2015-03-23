@@ -1,0 +1,50 @@
+<ul class="sidebar-nav">
+  <li class="sidebar-brand opened">
+    <%= link_to '', root_path, :class => 'navbar-brand' %>
+  </li>
+
+  <% if content_for?(:sidebar) %>
+    <%= yield(:sidebar) %>
+  <% else %>
+    <ul class="main-nav opened">
+
+      <li class="icon issues">
+        <%= link_to root_path do %>
+          <span class="pe-7s-drawer pe-2x pe-va"></span> &nbsp;
+          <span class="js-toggle-title">
+            Задачи
+          </span>
+        <% end %>
+      </li>
+
+    </ul>
+  <% end %>
+</ul>
+
+<div class="settings">
+  <ul>
+    <li>
+      <%= link_to edit_user_registration_path do %>
+        <span class="pe-7s-config pe-2x pe-va"></span> &nbsp;
+        <span class="js-toggle-title">
+          Редактировать профиль
+        </span>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="account media">
+  <div class="pull-left">
+    <%= image_tag current_user.gravatar_url, :class => 'img-avatar img-circle' %>
+    <%= link_to current_user, '#', :class => 'login' %>
+  </div>
+
+  <div class="logout pull-right">
+    <%= link_to destroy_user_session_path, :method => :delete do %>
+      <span class="pe-7s-upload pe-rotate-90 pe-2x pe-va"></span>
+    <% end %>
+  </div>
+</div>
+
+<div class="sidebar-toggle js-sidebar-toggle">‹</div>

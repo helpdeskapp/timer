@@ -1,55 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" sizes="192x192" href="/assets/icons/apple-touch-icon-192px.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/icons/apple-touch-icon-180px.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/icons/apple-touch-icon-152px.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/icons/apple-touch-icon-144px.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/icons/apple-touch-icon-120px.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/icons/apple-touch-icon-114px.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/icons/apple-touch-icon-76px.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/icons/apple-touch-icon-72px.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/icons/apple-touch-icon-57px.png">
+
+    <%= favicon_link_tag 'favicon.ico'%>
+
     <title><%= document_title %></title>
-    <%= stylesheet_link_tag    'application', :media => 'all' %>
-    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
   </head>
-  <body>
-    <div class="container">
-      <div class="header navbar navbar-default">
-        <ul class="nav navbar-nav">
-          <li>
-            <%= link_to t('site_name'), root_path, :class => 'navbar-brand' %>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right navbar-profile">
-          <% if user_signed_in? %>
+  <body class="<%= controller_name %>">
+    <div id="wrapper">
 
-            <li class="dropdown profile">
-              <%= link_to '#', :class => 'dropdown-toggle', :data => { :toggle => :dropdown } do %>
-                <%= image_tag current_user.gravatar_url %>
-                <%= current_user.email %>
-              <% end %>
-              <ul class="dropdown-menu">
-                <% if can? :manage, :all %>
-                  <li><%= link_to 'Управление', manage_root_path %></li>
-                <% end %>
-                <li><%= link_to 'Выход', destroy_user_session_path, :method => :delete %></li>
-              </ul>
-            </li>
+      <nav id="sidebar-wrapper" class="navbar-fixed-top">
+        <%= render 'commons/sidebar' if current_user %>
+      </nav>
 
-          <% else %>
-            <li class="sign-in" role="presentation"><%= link_to 'Вход', new_user_session_path %></li>
-            <li class="sign-up" role="presentation"><%= link_to 'Регистрация', new_user_registration_path %></li>
-          <% end %>
-        </ul>
-      </div>
+      <div id="page-content-wrapper">
 
-      <div class="content">
-        <%= content_tag :div, notice, :class => 'alert alert-success' if notice %>
-        <%= content_tag :div, alert, :class => 'alert alert-danger' if alert %>
+        <header class="navbar navbar-static-top" id="header" role="banner">
+          <div class="container-fluid">
+            <nav class="collapse navbar-collapse" role="navigation">
+              <%#= render 'commons/header' %>
+            </nav>
+          </div>
+        </header>
 
-        <%= yield :content %>
-      </div>
-
-      <div class="footer">
-        &copy; <%= Time.zone.now.year %> <%= t('site_name') %>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <%= render :partial => 'layouts/metrika' if Rails.env.production? %>
+    <%= render :partial => 'commons/flash' %>
 
+    <%= render :partial => 'commons/metrika' if Rails.env.production? %>
   </body>
 </html>
