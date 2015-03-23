@@ -1,0 +1,29 @@
+language: ruby
+cache: bundler
+
+rvm:
+  - 2.1.5
+
+env:
+  global:
+    - APP_HOST='test.travis.lc'
+    - MAIL_SENDER='noreply@travis.lc'
+    - MANDRILL_APIKEY='SECRET'
+    - MANDRILL_USERNAME='SECRET'
+    - PAPPER='37df6445cf70c637cbf2bb07e51e423b507ee90'
+    - SECRET_KEY='37df6445cf70c637cbf2bb07e51e423b507ee90'
+    - SECRET_KEY_BASE='37df6445cf70c637cbf2bb07e51e423b507ee90'
+    - SECRET_TOKEN='37df6445cf70c637cbf2bb07e51e423b507ee90'
+    - DEFAULT_URL_OPTIONS='http://test.travis.lc'
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+
+before_script:
+  - cp config/database.travis.yml config/database.yml
+
+addons:
+  code_climate:
+    repo_token: c692d3456e17137a73cc36de50f26a828f1b9a5027cad4163f8c5fab4104d578

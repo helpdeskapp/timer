@@ -1,0 +1,8 @@
+ru:
+  cancan:
+    access_denied: Доступ запрещен
+
+  site_name: Helpdeskapp
+
+  page_title:
+    test: test
