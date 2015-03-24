@@ -21,6 +21,7 @@ group :default do
   gem 'sass-rails',                    '~> 5.0'
   gem 'simple_form'
   gem 'uglifier',                      '>= 1.3.0'
+  gem 'wiselinks'
 end
 
 group :development, :test do
