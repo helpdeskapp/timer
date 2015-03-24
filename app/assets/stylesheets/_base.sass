@@ -1,256 +1,87 @@
-#wrapper
-  min-width: 1024px
-  width: auto !important
-  height: 100%
-
-#header
-  +box-shadow(-2px 1px 1px rgba(0,0,0,0.1))
-  background: #fff
-  height: 50px
-  left: 60px
-  margin: 0
-  position: fixed
-  right: 0
-  top: 0
-  z-index: 1050
-
 .header
-  +inline-block
-  font-size: 20px
+  background: #fff
+  border-bottom: 1px solid #e7e7e7
   height: 50px
-  line-height: 36px
-  padding: 7px 15px
+  margin: 0
 
-.navbar-profile
-  .notifications
+  .logo
+    +inline-block
+    margin: 3px 5px 0 0
 
-    a
-      padding: 11px
+    &:before, &:after
+      content: ''
+      display: inline-block
+      width: 0
+      height: 0
+
+    &:before
+      border-top: 10px solid transparent
+      border-bottom: 10px solid transparent
+      border-left: 18px solid #1bbc9c
+
+    &:after
+      border-top: 10px solid transparent
+      border-bottom: 10px solid transparent
+      border-right: 18px solid #3399db
+
+  .timer-group
+    margin: 7px 0
+
+  .profile-dropdown
+    +inline-block
+    width: 50px
+    height: 50px
+
+    .dropdown-toggle
+      background-color: transparent !important
+      line-height: 29px
+      margin: 0
+      padding: 8px
 
       &:hover, &:active, &:focus, &:visited
         background-color: transparent !important
 
-    .unread
-      color: $link-color
-    .read
-      color: #999
+    .dropdown-menu
+      border-color: #e7e7e7
 
-.profile-dropdown
-  +inline-block
-  width: 50px
-  height: 50px
+      &:before, &:after
+        content: ''
+        position: absolute
+        display: inline-block
 
-  .dropdown-toggle
-    background-color: transparent !important
-    line-height: 29px
-    margin: 0
-    padding: 8px
+      &:before
+        top: -7px
+        right: 16px
+        border-right: 7px solid transparent
+        border-bottom: 7px solid #ccc
+        border-left: 7px solid transparent
+        border-bottom-color: rgba(0, 0, 0, 0.2)
 
-    &:hover, &:active, &:focus, &:visited
-      background-color: transparent !important
+      &:after
+        top: -6px
+        right: 17px
+        border-right: 6px solid transparent
+        border-bottom: 6px solid #ffffff
+        border-left: 6px solid transparent
 
-  .dropdown-menu
-    border-color: #e7e7e7
+      .divider
+        background-color: #e7e7e7
 
-    &:before, &:after
-      content: ''
-      position: absolute
-      display: inline-block
-
-    &:before
-      top: -7px
-      right: 16px
-      border-right: 7px solid transparent
-      border-bottom: 7px solid #ccc
-      border-left: 7px solid transparent
-      border-bottom-color: rgba(0, 0, 0, 0.2)
-
-    &:after
-      top: -6px
-      right: 17px
-      border-right: 6px solid transparent
-      border-bottom: 6px solid #ffffff
-      border-left: 6px solid transparent
-
-    .divider
-      background-color: #e7e7e7
-
-  .dropdown-menu > li > a
-    padding: 3px 15px
-    color: #777
-
-    &:hover
-      background: transparent
-      color: #333
-
-#sidebar-wrapper
-  background: $dark
-  height: 100%
-  overflow: visible !important
-  z-index: 1050
-  width: 65px
-
-  &.opened
-    width: 250px
-
-  &.closed
-    width: 65px
-
-  a
-    color: #f1f1f1
-    text-decoration: none
-    outline: none
-
-    &:hover
-      background: rgba(255, 255, 255, 0.2)
-      color: #fff
-      text-decoration: none
-
-    &:active, &:focus
-      text-decoration: none
-
-  .active
-    background: rgba(255, 255, 255, 0.2)
-    color: #fff
-    text-decoration: none
-
-  .settings, .account
-    position: fixed
-    width: 100%
-
-    .pull-left
-      margin: 0
-
-  .settings
-    bottom: 65px
-    font-size: 13px
-
-    li
-      line-height: 36px
-
-      a
-        display: block
-        padding: 0 0 0 20px
-
-  .account
-    border-top: 1px solid rgba(255, 255, 255, 0.2)
-    bottom: 0
-    color: #f1f1f1
-    padding: 15px 20px
-
-    a
-      color: #fff
+    .dropdown-menu > li > a
+      padding: 3px 15px
+      color: #777
 
       &:hover
-        color: #fff
+        background: transparent
+        color: #333
 
-    .login
-      margin: 0 0 0 5px
+.main
+  margin: 20px 0
 
-    .logout
-      margin: 3px 0 0 0
+.dropdown-menu
+  +box-shadow(none)
 
-  .sidebar-toggle
-    +border-bottom-right-radius(3px)
-    +border-top-right-radius(3px)
-    background: #2c3f50
-    color: #f1f1f1
-    cursor: pointer
-    font-size: 32px
-    font-weight: 100
-    height: 32px
-    line-height: 27px
-    margin-top: -16px
-    position: absolute
-    right: -13px
-    text-align: center
-    top: 50%
-    width: 14px
+.img-avatar
+  height: 34px
+  width: 34px
 
-#page-content-wrapper
-  padding: 65px 0
-  margin: 0 0 0 70px
-
-.sidebar-nav
-  color: #f1f1f1
-  list-style: none
-  margin: 0
-  padding: 0
-  position: absolute
-  top: 0
-  width: 100%
-
-  li
-    line-height: 40px
-    text-indent: 20px
-
-    &.organization, &.project
-      line-height: 40px
-
-      .img-avatar
-        background: #fff
-        border: none
-        margin: 0 8px 0 0
-
-    a
-      display: block
-      font-size: 14px
-
-    &.icon
-      text-indent: 10px
-
-      &.issues, &.timetracking, &.knowleges
-        text-indent: 9px
-
-  > .sidebar-brand
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2)
-    font-size: 18px
-    height: 50px
-    line-height: 50px
-
-    &.opened
-      background: image-url('logo.png') no-repeat -17px 0
-
-    &.closed
-      background: image-url('logo60px.png') no-repeat 1px -5px
-
-    a
-      color: #f1f1f1
-      display: block
-      padding: 15px 0
-      width: 100%
-
-      &:hover
-        color: #fff
-        background: none
-
-  > .project-settings
-
-    &.closed
-
-      li
-        line-height: 36px
-
-        a
-          display: block
-
-          span
-            display: initial
-
-.subnav
-  background-color: #424242
-  bottom: 0
-  display: none
-  left: 250px
-  padding: 10px 0
-  position: fixed
-  top: 0
-  width: 250px
-  z-index: -1
-
-  &.active
-    display: block
-
-.slide-out #page-content-wrapper
-  +transform(translateX(250px))
-  +transition(all 0.5s ease)

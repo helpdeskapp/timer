@@ -1,0 +1,151 @@
+.btn-green, .btn-blue, .btn-gray, .btn-destroy, .btn-dark, .btn-white
+  +border-radius(2px)
+  +box-shadow(inset 0 2px 4px rgba)
+  +box-sizing(border-box)
+  +transition(background 0.3s ease, border-color 0.3s ease)
+  border: rgba(0,0,0,0.05) 0.1em solid
+  color: #fff
+  cursor: pointer
+  display: inline-block
+  font-size: 14px
+  font-weight: 300
+  line-height: 24px
+  outline: none
+  padding: 4px 22px
+  text-align: center
+  text-decoration: none
+  text-shadow: none
+  width: auto
+
+  &:hover, &:focus
+    outline: none
+    text-decoration: none
+
+  &.btn-block
+    width: 100%
+
+.btn-green
+  background: $green
+
+  &:hover, &:focus
+    background: $green
+    color: #fff
+
+  &:active
+    +box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05))
+
+.btn-red
+  background: none
+  border: 1px solid #e74c3c
+  color: #e74c3c
+  font-size: 13px !important
+  line-height: 14px !important
+
+  &:hover, &:focus
+    background: #e74c3c
+    color: #fff
+
+  &:active
+    +box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05))
+
+.btn-blue
+  background: #217fd2
+
+  &:hover, &:focus
+    background: #006dcc
+    color: #fff
+
+  &:active
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+
+.btn-gray
+  background: #efefef
+  color: #333
+
+  &:hover, &:focus
+    background: #e5e5e5
+    color: #333
+
+  &:active
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+
+.btn-destroy
+  background: #e75d59
+
+  &:hover, &:focus
+    background: #db0f00
+    color: #fff
+
+  &:active
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+
+.btn-dark
+  background: #383838
+
+  &:hover, &:focus
+    background: #5c5c5c
+    color: #fff
+
+  &:active
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+
+  &.github
+    background-image: image-url("github.png")
+    background-repeat: no-repeat
+    background-position: 5px -36px
+
+    &:hover
+      background-position: 5px 0
+
+.btn-white
+  background: #fff
+  border: 1px solid #777
+  color: #333
+
+  &:hover, &:focus
+    background: #fff
+    color: #333
+
+.btn-rounded
+  +border-radius(2px)
+
+.btn-round
+  +border-radius(50%)
+  border: 1px solid #999
+  color: #555
+  font-size: 20px
+  height: 24px
+  line-height: 18px
+  margin: 4px 0 0 0
+  padding: 0
+  text-align: center
+  width: 24px
+
+.btn-small
+  font-size: 12px
+  height: 22px
+  line-height: 12px
+
+.btn-medium
+  font-size: 12px
+  height: 28px
+  line-height: 18px
+
+input
+  &.btn
+    height: 34px
+
+  &.btn-small
+    height: 24px
+
+  &.btn-medium
+    height: 28px
+    line-height: 18px

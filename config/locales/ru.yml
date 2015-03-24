@@ -6,3 +6,16 @@ ru:
 
   page_title:
     test: test
+
+  enumerize:
+    timer:
+      kind:
+        content:                Контент
+        copyright:              Копирайт
+        design:                 Дизайн
+        develop:                Разработка
+        management:             Менеджмент
+        not_planned_develop:    Незапланированная разработка
+        support:                Поддержка пользователей
+        sysop:                  Системное администрирование
+        meeting:                Обсуждение

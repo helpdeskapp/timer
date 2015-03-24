@@ -1,0 +1,26 @@
+<li class="timer <%= timer.active? ? 'active' : 'stub' %> js-timer">
+  <div class="left">
+    <div class="title">
+      <%= timer.title %>
+    </div>
+
+    <div class="kind pull-left">
+      <%= timer.kind_text %>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="amount clock <%= timer.active? ? 'js-clock' : 'stub' %>" data-clock="<%= timer.spend_time %>">
+      <%= timestamp_to_hours timer.amount %>
+    </div>
+
+    <div class="actions">
+      <% if timer.active? %>
+        <%= link_to 'Остановить', timer_stop_path(timer), :method => :put, :class => 'btn btn-red js-stop', :remote => true %>
+      <% else %>
+        <%= link_to 'Запустить', timer_start_path(timer), :method => :put, :class => 'btn btn-red js-start', :remote => true %>
+      <% end %>
+      <%= link_to 'Удалить', timer_path(timer), :method => :delete, :class => 'btn btn-red' %>
+    </div>
+  </div>
+</li>

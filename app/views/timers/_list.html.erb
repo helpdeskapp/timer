@@ -1,0 +1,7 @@
+<% collection.group_by(&:by_day).sort.reverse.each do |day, timers| %>
+  <h4><%= l day, :format => :long %></h4>
+
+  <ul class="timers">
+    <%= render timers %>
+  </ul>
+<% end %>

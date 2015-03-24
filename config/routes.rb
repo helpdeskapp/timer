@@ -3,5 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root :to => 'application#index'
+  resources :timers, :except => :show do
+    put 'start' => 'timers#start', :as => :start
+    put 'stop' => 'timers#stop', :as => :stop
+  end
+
+  root :to => 'timers#index'
 end
