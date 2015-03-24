@@ -24,30 +24,22 @@
     <![endif]-->
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <%= wiselinks_meta_tag %>
   </head>
   <body class="<%= controller_name %>">
-    <div id="wrapper">
 
-      <nav id="sidebar-wrapper" class="navbar-fixed-top">
-        <%= render 'commons/sidebar' if current_user %>
-      </nav>
+    <header class="navbar navbar-static-top header" role="banner">
+      <div class="container">
+        <nav class="collapse navbar-collapse" role="navigation">
+          <%= render 'commons/header' %>
+        </nav>
+      </div>
+    </header>
 
-      <div id="page-content-wrapper">
-
-        <header class="navbar navbar-static-top" id="header" role="banner">
-          <div class="container-fluid">
-            <nav class="collapse navbar-collapse" role="navigation">
-              <%#= render 'commons/header' %>
-            </nav>
-          </div>
-        </header>
-
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <%= yield %>
-            </div>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
+          <%= yield %>
         </div>
       </div>
     </div>
