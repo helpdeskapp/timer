@@ -10,8 +10,13 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :permissions, :dependent => :destroy
+  has_many :timers, -> { order('created_at desc') } , :dependent => :destroy
 
   def administrator?
     permissions.where(:role => :administrator).any?
+  end
+
+  def stop_all_active_timers
+    timers.active.map { |timer| timer.update_attributes(:active => false, :amount => timer.spend_time, :end_at => Time.zone.now) }
   end
 end
