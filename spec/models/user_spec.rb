@@ -14,6 +14,7 @@ describe User do
 
   describe "has_many associations" do
     it { should have_many :permissions }
+    it { should have_many :timers }
   end
 
   it "#administrator?" do
