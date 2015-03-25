@@ -1,5 +1,9 @@
 <%= simple_form_for @timer, :html => { :class => 'form-inline form-timer' } do |f| %>
-  <%= f.input :title, :as => :string, :label => false, :input_html => { :class => 'title' }, :wrapper_html => { :class => 'title-wrapper' }, :placeholder => 'Чем вы занимаетесь?' %>
+  <%= f.input :title, :as => :string, :label => false, :autofocus => true,
+              :input_html => { :class => 'title js-focused-input' },
+              :wrapper_html => { :class => 'title-wrapper' },
+              :placeholder => 'Чем вы занимаетесь?' %>
+
   <%= f.input :kind, :label => false, :include_blank => false, :wrapper_html => { :class => 'kind-wrapper' } %>
   <%= f.submit 'Сохранить', :class => 'btn btn-blue' %>
 <% end %>
