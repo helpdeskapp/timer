@@ -2,6 +2,7 @@
   $('.overlay').remove()
 
   # call
+  init_timer()
 
 $(document).ready ->
   window.wiselinks = new Wiselinks($('.js-wiselinks-content'))

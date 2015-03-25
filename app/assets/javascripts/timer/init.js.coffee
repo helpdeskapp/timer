@@ -12,6 +12,12 @@ get_timer = (secs) ->
 
   return "#{hours}:#{minutes}:#{seconds}"
 
+show_clock_handler = () ->
+  clock = $('.clock').each ->
+    amount = $(this).data('clock')
+
+    $(this).text(get_timer(amount))
+
 @init_js_clock = ->
   $('.js-clock:not(.armed)').addClass('armed').each ->
     clck = $(this)
@@ -24,8 +30,9 @@ get_timer = (secs) ->
       return
     ), 1000
 
-$ ->
+@init_timer = ->
   init_js_clock()
+  show_clock_handler()
 
   $('.js-timers').on 'ajax:success', (evt, response, status, jqXHR) ->
     target = $(evt.target)
@@ -34,3 +41,4 @@ $ ->
       $('.js-timers').html(response)
 
       init_js_clock()
+      show_clock_handler()
