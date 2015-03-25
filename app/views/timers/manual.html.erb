@@ -1,0 +1,16 @@
+<%= simple_form_for Timer.new, :html => { :class => 'form-inline form-timer' } do |f| %>
+  <%= f.input :title, :as => :string, :label => false, :autofocus => true,
+              :input_html => { :class => 'title js-focused-input' },
+              :wrapper_html => { :class => 'title-wrapper' },
+              :placeholder => 'Чем вы занимаетесь?' %>
+
+  <%= f.input :kind, :label => false, :include_blank => false, :wrapper_html => { :class => 'kind-wrapper' } %>
+
+  <%= f.input :date, :label => false,
+              :input_html => { :class => 'js-timer-timepicker timer-timepicker', :value => Russian::strftime(Time.zone.now.to_date, '%d-%m-%Y') } %>
+
+  <%= f.input :time, :label => false, :placeholder => '1h30m15s',
+              :input_html => { :class => 'timer-time' } %>
+
+  <%= f.submit 'Сохранить', :class => 'btn btn-blue' %>
+<% end %>

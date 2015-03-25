@@ -21,7 +21,7 @@
 
   <div class="btn-group timer-group navbar-right" role="group">
     <%= link_to 'Таймер', new_timer_path, :class => 'btn btn-green', :data => { :push => true } %>
-    <%= link_to 'Время', new_timer_path, :class => 'btn btn-green', :data => { :push => true } %>
+    <%= link_to 'Время', timers_manual_path, :class => 'btn btn-green', :data => { :push => true } %>
   </div>
 <% else %>
 <% end %>

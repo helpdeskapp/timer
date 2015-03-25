@@ -2,12 +2,20 @@ class TimersController < ApplicationController
   inherit_resources
 
   actions :all, :except => :show
-  custom_actions :collection => [:start, :stop]
+  custom_actions :collection => [:start, :stop, :manual]
 
   def create
     current_user.stop_all_active_timers
 
-    create!
+    if params[:timer][:date] || params[:timer][:time]
+      @timer = Timer.new(timer_params)
+
+      @timer.manual_timer(params[:timer][:date], params[:timer][:time])
+
+      redirect_to timers_path
+    else
+      create!
+    end
   end
 
   #TODO fix me
@@ -35,7 +43,7 @@ class TimersController < ApplicationController
   end
 
   def stop
-    start!{
+    stop!{
       @timer = Timer.find(params[:timer_id])
 
       if @timer
@@ -51,7 +59,11 @@ class TimersController < ApplicationController
   private
 
   def permitted_params
-    params.permit(:timer => [:title, :kind])
+    params.permit(:timer => [:title, :kind, :date, :time])
+  end
+
+  def timer_params
+    params.require(:timer).permit(:title, :kind, :date, :time)
   end
 
   def collection
