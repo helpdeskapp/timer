@@ -54,8 +54,8 @@ class TimersController < ApplicationController
     params.permit(:timer => [:title, :kind])
   end
 
-  def begin_of_association_chain
-    current_user
+  def collection
+    current_user.timers
   end
 
   alias_method :old_build_resource, :build_resource
