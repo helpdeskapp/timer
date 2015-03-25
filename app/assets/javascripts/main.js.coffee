@@ -1,6 +1,7 @@
 @init_main = ->
-  init_timer()
   init_input_autofocus()
+  init_timepicker()
+  init_timer()
 
 $ ->
   init_main()
