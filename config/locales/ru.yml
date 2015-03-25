@@ -2,6 +2,9 @@ ru:
   cancan:
     access_denied: Доступ запрещен
 
+  confirm:
+    delete: Вы уверены?
+
   site_name: Helpdeskapp
 
   page_title:

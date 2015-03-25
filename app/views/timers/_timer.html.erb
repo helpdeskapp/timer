@@ -20,7 +20,7 @@
       <% else %>
         <%= link_to 'Запустить', timer_start_path(timer), :method => :put, :class => 'btn btn-red js-start', :remote => true %>
       <% end %>
-      <%= link_to 'Удалить', timer_path(timer), :method => :delete, :class => 'btn btn-red' %>
+      <%= link_to 'Удалить', timer_path(timer), :method => :delete, :class => 'btn btn-red', :data => { :confirm => t('confirm.delete') } %>
     </div>
   </div>
 </li>
