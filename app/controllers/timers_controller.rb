@@ -8,7 +8,7 @@ class TimersController < ApplicationController
     current_user.stop_all_active_timers
 
     if params[:timer][:date] || params[:timer][:time]
-      @timer = Timer.new(timer_params)
+      @timer = current_user.timers.new(timer_params)
 
       @timer.manual_timer(params[:timer][:date], params[:timer][:time])
 
