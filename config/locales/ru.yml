@@ -5,6 +5,12 @@ ru:
   site_name: Helpdeskapp
 
   page_title:
+    timers:
+      index:  Учет времени
+      new:    Новый таймер
+      create: Новый таймер
+      update: Изменение таймера
+
     test: test
 
   enumerize:
