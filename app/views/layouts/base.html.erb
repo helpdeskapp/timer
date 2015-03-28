@@ -36,11 +36,13 @@
       </div>
     </header>
 
-    <div class="timer-filter">
-      <div class="container">
-        <%= render 'commons/filter' %>
+    <% if user_signed_in? %>
+      <div class="timer-filter">
+        <div class="container">
+          <%= render 'commons/filter' %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="container">
       <div class="row">
