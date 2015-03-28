@@ -1,3 +1,5 @@
+<%= render 'commons/page_title' %>
+
 <% @collection.group_by(&:by_day).sort.reverse.each do |day, timers| %>
   <h4>
     <%= l day, :format => :long %>,

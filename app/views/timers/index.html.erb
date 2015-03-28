@@ -1,15 +1,4 @@
-<% content_for :header do %>
-<% end %>
-
 <div class="js-wiselinks-content">
-  <div class="btn-toolbar">
-    <div class="btn-group btn-toolbar filter" role="toolbar">
-      <% @presenter.period_filter.links.each do |link| %>
-        <%= link_to link.title, link.path, :class => "btn btn-sm btn-link #{link.klass}", :data => { :push => true } %>
-      <% end %>
-    </div>
-  </div>
-
   <div class="js-timers">
     <%= render 'list' %>
   </div>

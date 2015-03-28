@@ -1,18 +1,24 @@
-<%= simple_form_for Timer.new, :html => { :class => 'form-inline form-timer' } do |f| %>
-  <%= f.input :title, :as => :string, :label => false, :autofocus => true,
-              :input_html => { :class => 'title js-focused-input' },
-              :wrapper_html => { :class => 'title-wrapper' },
-              :placeholder => 'Чем вы занимаетесь?' %>
+<%= render 'commons/page_title' %>
 
-  <%= f.input :kind, :label => false, :include_blank => false, :wrapper_html => { :class => 'kind-wrapper' } %>
+<div class="js-wiselinks-content">
+  <h4>Добавление времени</h4>
 
-  <%= f.input :date, :label => false,
-              :input_html => { :class => 'js-timepicker', :value => Russian::strftime(Time.zone.now.to_date, '%d-%m-%Y') },
-              :wrapper_html => { :class => 'date-wrapper' } %>
+  <%= simple_form_for Timer.new, :html => { :class => 'form-inline form-timer' } do |f| %>
+    <%= f.input :title, :as => :string, :label => false, :autofocus => true,
+                :input_html => { :class => 'title js-focused-input' },
+                :wrapper_html => { :class => 'title-wrapper' },
+                :placeholder => 'Чем вы занимаетесь?' %>
 
-  <%= f.input :time, :label => false, :placeholder => '1h30m15s',
-              :input_html => { :class => 'timer-time' },
-              :wrapper_html => { :class => 'time-wrapper' } %>
+    <%= f.input :kind, :label => false, :include_blank => false, :wrapper_html => { :class => 'kind-wrapper' } %>
 
-  <%= f.submit 'Сохранить', :class => 'btn btn-blue' %>
-<% end %>
+    <%= f.input :date, :label => false,
+                :input_html => { :class => 'js-timepicker', :value => Russian::strftime(Time.zone.now.to_date, '%d-%m-%Y') },
+                :wrapper_html => { :class => 'date-wrapper' } %>
+
+    <%= f.input :time, :label => false, :placeholder => '1h30m15s',
+                :input_html => { :class => 'timer-time' },
+                :wrapper_html => { :class => 'time-wrapper' } %>
+
+    <%= f.submit 'Сохранить', :class => 'btn btn-blue' %>
+  <% end %>
+</div>

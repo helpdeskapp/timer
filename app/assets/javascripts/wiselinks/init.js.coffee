@@ -1,6 +1,8 @@
 @handle_reload_wiselinks = (data) ->
   $('.overlay').remove()
 
+  document.title = $('.js-page-title').text()
+
   # call
   init_main()
 

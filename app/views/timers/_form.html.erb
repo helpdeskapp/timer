@@ -5,5 +5,8 @@
               :placeholder => 'Чем вы занимаетесь?' %>
 
   <%= f.input :kind, :label => false, :include_blank => false, :wrapper_html => { :class => 'kind-wrapper' } %>
+  <%= f.input :time, :label => false, :placeholder => '1h30m15s',
+              :input_html => { :class => 'timer-time' },
+              :wrapper_html => { :class => 'time-wrapper' } unless @timer.new_record? %>
   <%= f.submit 'Сохранить', :class => 'btn btn-blue' %>
 <% end %>

@@ -1,0 +1,14 @@
+<div class="btn-toolbar js-filter">
+  <div class="btn-group btn-toolbar filter hidden-sm hidden-xs" role="toolbar">
+    <% @presenter.period_filter.links.each do |link| %>
+      <%= link_to link.title, link.path, :class => "btn btn-sm btn-link #{link.klass}", :data => { :push => true } %>
+    <% end %>
+  </div>
+
+  <div class="btn-group btn-toolbar filter filter-green pull-right" role="toolbar">
+    <%= link_to 'Добавить время', timers_manual_path, :class => 'btn btn-sm btn-link', :data => { :push => true } %>
+  </div>
+  <div class="btn-group btn-toolbar filter filter-green pull-right" role="toolbar">
+    <%= link_to 'Запустить таймер', new_timer_path, :class => 'btn btn-sm btn-link', :data => { :push => true } %>
+  </div>
+</div>

@@ -4,6 +4,9 @@
   height: 50px
   margin: 0
 
+  .navbar-brand
+    padding: 12px 15px
+
   .logo
     +inline-block
     margin: 3px 5px 0 0
@@ -85,3 +88,13 @@
   height: 34px
   width: 34px
 
+@media (max-width: $screen-sm-min)
+  .navbar-collapse, .navbar-profile
+    padding: 0 !important
+    margin: 0 !important
+
+    .navbar-right
+      float: right
+
+  .filter-green
+    float: left !important
