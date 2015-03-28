@@ -1,4 +1,4 @@
-<% collection.group_by(&:by_day).sort.reverse.each do |day, timers| %>
+<% @collection.group_by(&:by_day).sort.reverse.each do |day, timers| %>
   <h4>
     <%= l day, :format => :long %>,
     <span class="clock" data-clock="<%= timers.map(&:amount).sum %>"></span>

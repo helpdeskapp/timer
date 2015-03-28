@@ -38,7 +38,7 @@ class TimersController < ApplicationController
         end
       end
 
-      render :partial => 'timers/list', :locals => { :collection => current_user.timers } and return
+      render :partial => 'timers/list', :locals => { :collection => @collection } and return
     }
   end
 
@@ -52,11 +52,17 @@ class TimersController < ApplicationController
         @timer.update_attributes(:active => false, :amount => @timer.spend_time, :end_at => Time.zone.now)
       end
 
-      render :partial => 'timers/list', :locals => { :collection => current_user.timers } and return
+      render :partial => 'timers/list', :locals => { :collection => @collection } and return
     }
   end
 
   private
+
+  def collection
+    @presenter = TimerPresenter.new(params.merge!(:current_user => current_user))
+
+    @collection ||= @presenter.collection
+  end
 
   def permitted_params
     params.permit(:timer => [:title, :kind, :date, :time])
@@ -64,10 +70,6 @@ class TimersController < ApplicationController
 
   def timer_params
     params.require(:timer).permit(:title, :kind, :date, :time)
-  end
-
-  def collection
-    current_user.timers
   end
 
   alias_method :old_build_resource, :build_resource

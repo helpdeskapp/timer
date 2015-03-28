@@ -10,6 +10,7 @@ class Timer < ActiveRecord::Base
 
   scope :active, ->{ where(:active => true) }
   scope :today,  ->{ where('timers.start_at >= ? AND timers.end_at <= ?', Time.zone.now.beginning_of_day, Time.zone.now.end_of_day) }
+  scope :by_period, ->(from, to) { where('timers.start_at >= ? AND timers.end_at <= ?', Date.parse(from).beginning_of_day, Date.parse(to).end_of_day) if from && to }
 
   def by_day
     start_at.to_date

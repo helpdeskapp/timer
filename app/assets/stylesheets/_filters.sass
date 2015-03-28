@@ -1,0 +1,26 @@
+.filter
+  margin: 0 0 10px 5px
+
+  a
+    +border-radius(3px)
+    background: #fff
+    border: 1px solid $link_color
+    color: $link_color
+    font-size: 14px
+    padding: 3px 10px
+
+    &:hover
+      background: #d3e6f9
+      color: $link_color
+      text-decoration: none
+      border: 1px solid $link_color
+
+    &.selected
+      background: $link_color
+      color: #f8f8f8
+
+  li
+    &.active
+      a
+        background: $link_color
+        color: #f8f8f8
