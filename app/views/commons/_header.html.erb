@@ -1,9 +1,7 @@
-<%= link_to root_path, :class => 'navbar-brand', :data => { :push => true } do %>
+<%= link_to root_path, :class => 'navbar-brand' do %>
   <span class="logo"></span>
   timer.helpdeskapp.ru
 <% end %>
-
-<%= yield(:header) %>
 
 <% if user_signed_in? %>
   <ul class="nav navbar-nav navbar-right navbar-profile">
