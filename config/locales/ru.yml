@@ -15,6 +15,17 @@ ru:
       update: Изменение таймера
       manual: Добавление времени
 
+    sessions:
+      new: Вход
+    registrations:
+      new: Регистрация
+    passwords:
+      new: Восстановление пароля
+    confirmations:
+      new: Подтверждение аккаунта
+    unlocks:
+      new: Разблокировка аккаунта
+
     test: test
 
   enumerize:
