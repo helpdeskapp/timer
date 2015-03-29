@@ -5,9 +5,9 @@ class TimersController < ApplicationController
   actions :all, :except => :show
   custom_actions :collection => [:start, :stop, :manual]
 
-  def create
-    current_user.stop_all_active_timers
+  before_filter :stop_all_active_timers, :only => [:create, :start, :stop]
 
+  def create
     if params[:timer][:date] || params[:timer][:time]
       @timer = current_user.timers.new(timer_params)
 
@@ -19,25 +19,11 @@ class TimersController < ApplicationController
     end
   end
 
-  #TODO fix me
   def start
     start!{
       @timer = Timer.find(params[:timer_id])
 
-      current_user.stop_all_active_timers
-
-      if @timer.start_at >= Time.zone.now.beginning_of_day
-
-        @timer.update_attributes(:active => true, :start_at => Time.zone.now)
-      else
-        if current_user.timers.where(:title => @timer.title, :kind => @timer.kind).today.any?
-          @timer = current_user.timers.where(:title => @timer.title, :kind => @timer.kind).today.first
-
-          @timer.update_attributes(:active => true, :start_at => Time.zone.now)
-        else
-          @timer = Timer.create!(:title => @timer.title, :kind => @timer.kind, :start_at => Time.zone.now, :user => current_user)
-        end
-      end
+      @timer.start!
 
       render :partial => 'timers/list', :locals => { :collection => @collection } and return
     }
@@ -47,17 +33,17 @@ class TimersController < ApplicationController
     stop!{
       @timer = Timer.find(params[:timer_id])
 
-      if @timer
-        current_user.stop_all_active_timers
-
-        @timer.update_attributes(:active => false, :amount => @timer.spend_time, :end_at => Time.zone.now)
-      end
+      @timer.stop!
 
       render :partial => 'timers/list', :locals => { :collection => @collection } and return
     }
   end
 
   private
+
+  def stop_all_active_timers
+    current_user.stop_all_active_timers
+  end
 
   def collection
     @presenter = TimerPresenter.new(params.merge!(:current_user => current_user))

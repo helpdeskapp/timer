@@ -10,6 +10,7 @@ class Timer < ActiveRecord::Base
 
   scope :active, ->{ where(:active => true) }
   scope :today,  ->{ where('timers.start_at >= ? AND timers.end_at <= ?', Time.zone.now.beginning_of_day, Time.zone.now.end_of_day) }
+  scope :by_title_and_kind, -> (title, kind) { where('timers.title = ? AND timers.kind = ?', title, kind) }
   scope :by_period, ->(from, to) { where('timers.start_at >= ? AND timers.end_at <= ?', Date.parse(from).beginning_of_day, Date.parse(to).end_of_day) if from && to }
 
   def by_day
@@ -34,5 +35,20 @@ class Timer < ActiveRecord::Base
     parsed_time = hours * 60 * 60 + minutes * 60 + seconds
 
     self.update_attributes!(:active => false, :amount => parsed_time, :start_at => date, :end_at => (date.to_time + parsed_time))
+  end
+
+  def start!
+    if self.start_at >= Time.zone.now.beginning_of_day
+      self.update_attributes!(:active => true, :start_at => Time.zone.now)
+    elsif Timer.where(:title => self.title, :kind => self.kind, :user_id => self.user_id).today.any?
+      timer = Timer.where(:title => self.title, :kind => self.kind).today.first
+      timer.update_attributes!(:active => true, :start_at => Time.zone.now)
+    else
+      Timer.create!(:title => self.title, :kind => self.kind, :start_at => Time.zone.now, :user_id => self.user_id)
+    end
+  end
+
+  def stop!
+    self.update_attributes!(:active => false, :amount => self.spend_time, :end_at => Time.zone.now)
   end
 end
