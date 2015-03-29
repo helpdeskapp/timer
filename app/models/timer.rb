@@ -39,16 +39,35 @@ class Timer < ActiveRecord::Base
 
   def start!
     if self.start_at >= Time.zone.now.beginning_of_day
-      self.update_attributes!(:active => true, :start_at => Time.zone.now)
-    elsif Timer.where(:title => self.title, :kind => self.kind, :user_id => self.user_id).today.any?
-      timer = Timer.where(:title => self.title, :kind => self.kind).today.first
-      timer.update_attributes!(:active => true, :start_at => Time.zone.now)
+      start_today_timer
+    elsif find_eldest_timers.any?
+      start_eldest_timer
     else
-      Timer.create!(:title => self.title, :kind => self.kind, :start_at => Time.zone.now, :user_id => self.user_id)
+      create_new_timer
     end
   end
 
   def stop!
     self.update_attributes!(:active => false, :amount => self.spend_time, :end_at => Time.zone.now)
+  end
+
+  private
+
+  def find_eldest_timers
+    Timer.where(:title => self.title, :kind => self.kind, :user_id => self.user_id).today
+  end
+
+  def start_today_timer
+    self.update_attributes!(:active => true, :start_at => Time.zone.now)
+  end
+
+  def start_eldest_timer
+    timer = Timer.where(:title => self.title, :kind => self.kind).today.first
+
+    timer.update_attributes!(:active => true, :start_at => Time.zone.now)
+  end
+
+  def create_new_timer
+    Timer.create!(:title => self.title, :kind => self.kind, :start_at => Time.zone.now, :user_id => self.user_id)
   end
 end
