@@ -16,6 +16,10 @@ describe Timer do
   end
 
   it "#spend_time" do
-    expect(timer.spend_time).to eq timer.amount.to_i + Time.zone.now.to_i - timer.start_at.to_time.to_i
+    if timer.active
+      expect(timer.spend_time).to eq timer.amount.to_i + Time.zone.now.to_i - timer.start_at.to_time.to_i
+    else
+      expect(timer.spend_time).to eq timer.amount.to_i
+    end
   end
 end
