@@ -22,4 +22,16 @@ describe Timer do
       expect(timer.spend_time).to eq timer.amount.to_i
     end
   end
+
+  it "#parsed_time" do
+    time = ['30s', '40m15s', '3h25m10s', '1h20m', '4h45s'].sample
+
+    regex = time.match(/(?<hours>\d+(h|р))?(?<minutes>(?<=h)?\d+(m|ь))?(?<seconds>(?<=m)?\d+(s|ы))?/)
+
+    hours   = regex[1].to_i
+    minutes = regex[2].to_i
+    seconds = regex[3].to_i
+
+    expect(timer.parsed_time(time)).to eq hours * 60 * 60 + minutes * 60 + seconds
+  end
 end

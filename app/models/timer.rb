@@ -26,16 +26,19 @@ class Timer < ActiveRecord::Base
   end
 
   def manual_timer(date, time)
+    self.update_attributes!(:active => false, :amount => parsed_time(time), :start_at => date, :end_at => (date.to_time + parsed_time(time)))
+  end
+
+  def parsed_time(time)
     regex = time.match(/(?<hours>\d+(h|р))?(?<minutes>(?<=h)?\d+(m|ь))?(?<seconds>(?<=m)?\d+(s|ы))?/)
 
     hours   = regex[1].to_i
     minutes = regex[2].to_i
     seconds = regex[3].to_i
 
-    parsed_time = hours * 60 * 60 + minutes * 60 + seconds
-
-    self.update_attributes!(:active => false, :amount => parsed_time, :start_at => date, :end_at => (date.to_time + parsed_time))
+    @parsed_time ||= hours * 60 * 60 + minutes * 60 + seconds
   end
+
 
   def start!
     if self.start_at >= Time.zone.now.beginning_of_day
