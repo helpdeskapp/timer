@@ -8,5 +8,9 @@
   <%= f.input :time, :label => false, :placeholder => '1h30m15s',
               :input_html => { :class => 'timer-time' },
               :wrapper_html => { :class => 'time-wrapper' } unless @timer.new_record? %>
-  <%= f.submit 'Сохранить', :class => 'btn btn-blue' %>
+
+  <div class="actions">
+    <%= f.submit 'Сохранить', :class => 'btn btn-blue' %>
+    <%= link_to 'Отмена', timers_path, :class => 'btn btn-gray', :data => { :push => true } %>
+  </div>
 <% end %>
