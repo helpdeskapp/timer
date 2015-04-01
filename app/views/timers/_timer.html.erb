@@ -1,7 +1,7 @@
 <li class="timer <%= timer.active? ? 'active' : 'stub' %> js-timer">
   <div class="left">
     <div class="title">
-      <%= timer.title %>
+      <%= link_to timer.title, edit_timer_path(timer), :data => { :push => true } %>
     </div>
 
     <div class="kind pull-left hidden-xs hidden-sm">
