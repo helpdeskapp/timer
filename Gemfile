@@ -16,7 +16,7 @@ group :default do
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem 'pg'
-  gem 'rails',                         '~> 4.2.0'
+  gem 'rails',                         '~> 4.2.2'
   gem 'russian'
   gem 'sass-rails',                    '~> 5.0'
   gem 'simple_form'
