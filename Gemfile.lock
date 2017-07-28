@@ -163,6 +163,18 @@ GEM
     jquery-ui-rails (5.0.3)
       railties (>= 3.2.16)
     json (2.1.0)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     launchy (2.4.2)
       addressable (~> 2.3)
     listen (2.8.5)
@@ -336,6 +348,7 @@ DEPENDENCIES
   inherited_resources (~> 1.6.0)
   jquery-rails
   jquery-ui-rails
+  kaminari
   launchy
   newrelic_rpm
   pg

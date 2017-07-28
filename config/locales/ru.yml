@@ -40,3 +40,11 @@ ru:
         support:                Поддержка пользователей
         sysop:                  Системное администрирование
         meeting:                Обсуждение
+
+  views:
+    pagination:
+      first: "Первая"
+      last: "Последняя"
+      previous: ◀
+      next: ▶
+      truncate: "..."

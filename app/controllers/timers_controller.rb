@@ -48,7 +48,7 @@ class TimersController < ApplicationController
   def collection
     @presenter = TimerPresenter.new(params.merge!(:current_user => current_user))
 
-    @collection ||= @presenter.collection
+    @collection ||= Kaminari.paginate_array(@presenter.collection).page(params[:page])
   end
 
   def permitted_params

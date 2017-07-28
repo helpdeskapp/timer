@@ -55,7 +55,7 @@ class TimerPresenter
     @current_user ||= args[:current_user]
 
     @page         = args[:page]
-    @per_page     = 10000000
+    @per_page     = args[:per_page]
 
     store_parameters
     initialize_filters
