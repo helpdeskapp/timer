@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.3.1'
 
 group :default do
   gem 'bootstrap-sass'
@@ -16,7 +16,7 @@ group :default do
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem 'pg'
-  gem 'rails',                         '~> 4.2.2'
+  gem 'rails',                         '~> 4.2.9'
   gem 'russian'
   gem 'sass-rails',                    '~> 5.0'
   gem 'simple_form'
