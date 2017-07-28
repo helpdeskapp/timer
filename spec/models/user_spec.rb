@@ -17,7 +17,19 @@ describe User do
     it { should have_many :timers }
   end
 
-  it "#administrator?" do
-    expect(user.administrator?).to eq false
+  describe '#administrator?' do
+    let(:user) { create(:user) }
+
+    it 'user should not be administrator' do
+      expect(user.administrator?).to eq false
+    end
+  end
+
+  describe '#remember_me' do
+    let(:user) { create(:user) }
+
+    it 'user remember_me should be true' do
+      expect(user.remember_me).to be_truthy
+    end
   end
 end

@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   def stop_all_active_timers
     timers.active.map { |timer| timer.update_attributes(:active => false, :amount => timer.spend_time, :end_at => Time.zone.now) }
   end
+
+  def remember_me
+    true
+  end
 end
