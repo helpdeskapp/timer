@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
-ruby '2.3.5'
+ruby '2.5.3'
 
 group :default do
   gem 'bootstrap-sass'
   gem 'cancancan',                     '~> 1.10'
   gem 'coffee-rails',                  '~> 4.1.0'
   gem 'compass-rails'
-  gem 'devise'
+  gem "sprockets",                     '>= 2.12.5'
+  gem 'devise',                        '~> 4.6.0'
   gem 'enumerize'
   gem 'friendly_id',                   '~> 5.1.0'
   gem 'grape'
@@ -17,7 +18,7 @@ group :default do
   gem 'jquery-ui-rails'
   gem 'kaminari'
   gem 'pg'
-  gem 'rails',                         '~> 4.2.9'
+  gem 'rails',                         '~> 4.2.11.1'
   gem 'rake',                          '< 11.0'
   gem 'russian'
   gem 'sass-rails',                    '~> 5.0'
