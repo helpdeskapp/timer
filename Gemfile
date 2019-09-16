@@ -8,7 +8,7 @@ group :default do
   gem 'coffee-rails',                  '~> 4.1.0'
   gem 'compass-rails'
   gem "sprockets",                     '>= 2.12.5'
-  gem 'devise',                        '~> 4.6.0'
+  gem 'devise',                        '~> 4.7.1'
   gem 'enumerize'
   gem 'friendly_id',                   '~> 5.1.0'
   gem 'grape'
