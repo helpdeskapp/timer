@@ -149,6 +149,7 @@ GEM
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    hashie (4.0.0)
     hike (1.2.3)
     hirb (0.7.2)
     hitimes (1.2.2)
@@ -354,6 +355,7 @@ DEPENDENCIES
   grape
   gravtastic
   guard-rspec
+  hashie
   hirb
   inherited_resources (~> 1.6.0)
   jquery-rails

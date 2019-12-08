@@ -12,6 +12,7 @@ group :default do
   gem 'devise',                        '~> 4.7.1'
   gem 'enumerize'
   gem 'friendly_id',                   '~> 5.1.0'
+  gem 'hashie'
   gem 'grape'
   gem 'gravtastic'
   gem 'inherited_resources',           '~> 1.6.0'
