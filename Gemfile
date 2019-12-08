@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 group :default do
+  gem 'airbrake',                      '~> 5.0'
   gem 'bootstrap-sass'
   gem 'cancancan',                     '~> 1.10'
   gem 'coffee-rails',                  '~> 4.1.0'
