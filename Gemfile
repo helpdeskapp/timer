@@ -21,7 +21,7 @@ group :default do
   gem 'kaminari'
   gem 'pg'
   gem 'rails',                         '~> 4.2.11.1'
-  gem 'rake',                          '< 11.0'
+  gem 'rake',                          '< 13.0'
   gem 'russian'
   gem 'sass-rails',                    '~> 5.0'
   gem 'simple_form'
