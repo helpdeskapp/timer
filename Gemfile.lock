@@ -319,7 +319,7 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    tzinfo (1.2.7)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (2.7.0)
       execjs (>= 0.3.0)
